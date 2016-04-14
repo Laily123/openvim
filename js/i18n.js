@@ -17,7 +17,7 @@ var　I18n = {
 		    cache: false, 
 		    encoding: 'UTF-8', //文件编码方式
 		    callback: function() {// 回调方法
-		           alert(jQuery.i18n.prop('Sections'));//测试是否成功
+		        //alert(jQuery.i18n.prop('Sections'));//测试是否成功
 		    } 
 		});
 	},

@@ -196,10 +196,10 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
           ], accepterCreator)
         });
 
-    var matching_parentheses = createSection(I18n.getValue("Go to matching parentheses, %"),
+    var matching_parentheses = createSection(I18n.getValue("Go to matching parentheses, ％"),
       defaultPre,
       new Array(
-        I18n.getValue("In text that is structured with parentheses or brackets, |(| or |{| or |[|, use |%| to jump to the matching parenthesis or bracket."),
+        I18n.getValue("In text that is structured with parentheses or brackets, |(| or |{| or |[|, use |％| to jump to the matching parenthesis or bracket."),
         I18n.getValue("Here is (a sample) text to try that.")
       ),
       function() {

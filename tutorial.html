@@ -17,6 +17,8 @@
   <script type="text/Javascript" src="js/view/comparison.js?version={VERSION}"></script>
   <script type="text/Javascript" src="js/view/context_help.js?version={VERSION}"></script>
 
+
+
   <!-- VIM specific parts -->
   <script type="text/Javascript" src="js/engine/executor.js?version={VERSION}"></script>
   <script type="text/Javascript" src="js/engine/interpreter.js?version={VERSION}"></script>
@@ -60,9 +62,9 @@
 
 <body>
   <div class="navigation">
-    <a href="tutorial.html" class="selected">Tutorial</a>
-    <a href="sandbox.html">Practice</a>
-    <a href="development.html">Development</a>
+    <a href="tutorial.html" class="selected" data-lang="en">Tutorial</a>
+    <a href="sandbox.html" data-lang="en">Practice</a>
+    <a href="development.html" data-lang="en">Development</a>
     <!--
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.openvim.com/tutorial.html" data-text="OpenVim - Interactive Vim tutorial" data-count="horizontal" data-via="egaga">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     -->
@@ -103,6 +105,8 @@
 
         <div class="section_menu_append_target" style="clear: both;"></div>
   </div>
+    <script type="text/Javascript" src="js/jquery.i18n.properties.min.js"></script>
+  <script type="text/Javascript" src="js/i18n.js"></script>
 </body>
 </html>
 

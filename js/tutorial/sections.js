@@ -75,11 +75,11 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       interpreter.environment.setMode(mode);
     }
 
-  var introduction_section = createSection("Introduction",
+  var introduction_section = createSection(I18n.getValue("Introduction"),
         defaultPre,
     [
         "Hello.",
-        "I am an interactive |Vim| tutorial.",
+        "我是一个交互式的 |VIM| 教程",//"I am an interactive |Vim| tutorial.",
         "I'll teach you what Vim is about without hassle. If you are in a hurry, press any key to fast forward.",
         "To practice what you've learned, try out the |practice| page. It has a context sensitive reference for commands.",
         "Now, let me introduce you to basics of Vim."

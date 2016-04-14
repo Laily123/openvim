@@ -75,37 +75,38 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       interpreter.environment.setMode(mode);
     }
 
-  var introduction_section = createSection(I18n.getValue("Introduction"),
+	var introduction_section = createSection(I18n.getValue("Introduction"),
         defaultPre,
-    [
-        "Hello.",
-        "我是一个交互式的 |VIM| 教程",//"I am an interactive |Vim| tutorial.",
-        "I'll teach you what Vim is about without hassle. If you are in a hurry, press any key to fast forward.",
-        "To practice what you've learned, try out the |practice| page. It has a context sensitive reference for commands.",
-        "Now, let me introduce you to basics of Vim."
-    ], defaultPost);
+		new Array(
+			I18n.getValue("Hello"),
+			I18n.getValue("I am an interactive |Vim| tutorial."),
+			I18n.getValue("I'll teach you what Vim is about without hassle. If you are in a hurry, press any key to fast forward."),
+			I18n.getValue("To practice what you've learned, try out the |practice| page. It has a context sensitive reference for commands."),
+			I18n.getValue("Now, let me introduce you to basics of Vim.")
+		), defaultPost);
 
-    var two_modes_section = createSection("Two modes, insert and normal",
+
+    var two_modes_section = createSection(I18n.getValue("Two modes, insert and normal"),
         defaultPre,
-    [
-        "Vim has two basic modes. One is |insert| mode, in which you write text as if in normal text editor.",
-        "Another is |normal| mode which provides you efficient ways to navigate and manipulate text.",
-        "At any time, you can see which mode you are in on the status bar which is located at the top of the editor.",
-        "To change between modes, use |Esc| for normal mode and |i| for insert mode",
-        "Let's try it out! First, change to insert mode."
-    ],
+	new Array(
+		I18n.getValue("Vim has two basic modes. One is |insert| mode, in which you write text as if in normal text editor."),
+		I18n.getValue("Another is |normal| mode which provides you efficient ways to navigate and manipulate text."),
+		I18n.getValue("At any time, you can see which mode you are in on the status bar which is located at the top of the editor."),
+		I18n.getValue("To change between modes, use |Esc| for normal mode and |i| for insert mode"),
+		I18n.getValue("Let's try it out! First, change to insert mode.")
+	),
     function() {
         interpreter.environment.setCommandMode();
         showCommandOneByOne(
             [
              cmd("i", function() {
                $('.screen_view').addClass('active_context');
-               insertText("Good, now you're in insert mode. Write something and change back to normal mode.");
+               insertText(I18n.getValue("Good, now you're in insert mode. Write something and change back to normal mode."));
              }),
              cmd("Esc", function() {
                $('.screen_view').removeClass('active_context');
                interpreter.environment.interpretOneCommand("G");
-               insertText("Good. Let's move on to another section.");
+               insertText(I18n.getValue("Good. Let's move on to another section."));
              }),
              "Enter"
             ],
@@ -113,90 +114,94 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
     }
     );
 
-    var basic_movement = createSection("Basic movement: h, j, k, and l",
+    var basic_movement = createSection(I18n.getValue("Basic movement: h, j, k, and l"),
         defaultPre,
-    [
-        "In contrast to regular text editor, you use keys |h|, |j|, |k|, and |l| instead of arrow keys to move the cursor.",
-        "Let's see how it works in practice!"
-    ], function() {
+    new Array(
+        I18n.getValue("In contrast to regular text editor, you use keys |h|, |j|, |k|, and |l| instead of arrow keys to move the cursor."),
+        I18n.getValue("Let's see how it works in practice!")
+    ), function() {
         interpreter.environment.setCommandMode();
         showCommandOneByOne([
           "h", "h", "h", "k", "l", "l", "h", "h", "j",
           cmd("Enter", function() {
-            insertText("Let's move on.");
+            insertText(I18n.getValue("Let's move on."));
           }), "Enter"],
           accepterCreator);
     });
 
-    var word_movement = createSection("Word movement: w, e, b",
+    var word_movement = createSection(I18n.getValue("Word movement: w, e, b"),
         defaultPre,
-      [
-        "To navigate the text in terms of words, you can use keys |w|, |b|, and |e| (also W, B, E in real Vim).",
-        "|w| moves to the start of next word; |e| moves to the end of the word; and |b| moves to beginning of the word."
-      ], function() {
+      new Array(
+        I18n.getValue("To navigate the text in terms of words, you can use keys |w|, |b|, and |e| (also W, B, E in real Vim)."),
+        I18n.getValue("|w| moves to the start of next word; |e| moves to the end of the word; and |b| moves to beginning of the word."),
+		"To navigate the text in terms of words, you can use keys |w|, |b|, and |e| (also W, B, E in real Vim).",
+		"|w| moves to the start of next word; |e| moves to the end of the word; and |b| moves to beginning of the word."
+	  ),function() {
         interpreter.environment.setCommandMode();
         showCommandOneByOne([
           "b", "b", "w", "b", "e", "w",
           cmd("Enter", function() {
-            insertText("Word! Let's move on.");
+            insertText(I18n.getValue("Word! Let's move on."));
           }), "Enter"],
           accepterCreator);
     });
 
-    var times_movement = createSection("Number powered movement, e.g. 5w",
+    var times_movement = createSection(I18n.getValue("Number powered movement, e.g. 5w"),
       defaultPre,
-      [
-          "Moving within the text is not limited to individual keys; you can combine movement keys with a |number|. For example, |3w| is the same as pressing w three times."
-      ],
-      function() {
+	  new Array(    
+		I18n.getValue("Moving within the text is not limited to individual keys; you can combine movement keys with a |number|. For example, |3w| is the same as pressing w three times."),
+		"Moving within the text is not limited to individual keys; you can combine movement keys with a |number|. For example, |3w| is the same as pressing w three times."
+      ),function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretSequence("0");
         showCommandOneByOne(["3", "w", "9", "l", "2", "b",
-            cmd("Enter", function() { insertText("With numbers, ain't no numbness.") }),
+            cmd("Enter", function() { insertText(I18n.getValue("With numbers, ain't no numbness.")) }),
             "Enter"
         ],
         accepterCreator)
       });
 
-    var times_inserting = createSection("Insert text repeatedly, e.g. 3iYes",
+    var times_inserting = createSection(I18n.getValue("Insert text repeatedly, e.g. 3iYes"),
         defaultPre,
-        [
-            "You can insert text multiple times.",
-            "For example, an underline of a header might consist of 30 |-|s.",
+        new Array(
+            I18n.getValue("You can insert text multiple times."),
+            I18n.getValue("For example, an underline of a header might consist of 30 |-|s."),
             "------------------------------",
-            "With |30i-| |Esc|, there's no need to press |-| 30 times.",
-            "Let's try it out: insert |go| three times."
-        ],
+            I18n.getValue("With |30i-| |Esc|, there's no need to press |-| 30 times."),
+            I18n.getValue("Let's try it out: insert |go| three times.")
+        ),
         function() {
             interpreter.environment.setCommandMode();
             showCommandOneByOne(
                 ["3", "i", "g", "o", "Esc",
-                cmdWithText("Enter", "See? 10iAll work is only playEsc."),
+                cmdWithText("Enter", I18n.getValue("See? 10iAll work is only play Esc.")),
                 "Enter"
                 ], accepterCreator)
         });
 
-    var find_occurrence = createSection("Find a character, f and F",
+    var find_occurrence = createSection(I18n.getValue("Find a character, f and F"),
         defaultPre,
-        [
+        new Array(
+			I18n.getValue("To find and move to the next (or previous) occurrence of a character, use |f| and |F|, e.g. |fo| finds next o."),
+            I18n.getValue("You can combine f with a number. For example, you can find 3rd occurrence of 'q' with |3fq|, que?"),
             "To find and move to the next (or previous) occurrence of a character, use |f| and |F|, e.g. |fo| finds next o.",
             "You can combine f with a number. For example, you can find 3rd occurrence of 'q' with |3fq|, que?"
-        ],
+        ),
         function() {
           interpreter.environment.setCommandMode();
           interpreter.interpretSequence("0");
           showCommandOneByOne(["f", "w", "f", "s", "3", "f", "q",
-              cmd("Enter", function() { insertText("F-f-f-ast!") }),
+              cmd("Enter", function() { insertText(I18n.getValue("F-f-f-ast!"))}),
               "Enter"
           ], accepterCreator)
         });
 
-    var matching_parentheses = createSection("Go to matching parentheses, %",
+    var matching_parentheses = createSection(I18n.getValue("Go to matching parentheses, %"),
       defaultPre,
-      [
-        "In text that is structured with parentheses or brackets, |(| or |{| or |[|, use |%| to jump to the matching parenthesis or bracket.",
-        "Here is (a sample) text to try that."
-      ],
+      new Array(
+        I18n.getValue("In text that is structured with parentheses or brackets, |(| or |{| or |[|, use |%| to jump to the matching parenthesis or bracket."),
+        I18n.getValue("Here is (a sample) text to try that.")
+      ),
       function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretSequence(["F", "("]);

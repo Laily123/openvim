@@ -208,11 +208,11 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
         showCommandOneByOne(["%", "%", "Enter"], accepterCreator)
       });
 
-    var start_and_end_of_line = createSection("Go to start/end of line, 0 and $",
+    var start_and_end_of_line = createSection(I18n.getValue("Go to start/end of line, 0 and $"),
       defaultPre,
       [
-        "To reach the beginning of a line, press |0|.",
-        "For the end of a line, there's |$|"
+        I18n.getValue("To reach the beginning of a line, press |0|."),
+        I18n.getValue("For the end of a line, there's |$|")
       ],
       function() {
         interpreter.environment.setCommandMode();

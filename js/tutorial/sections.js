@@ -219,49 +219,51 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
         showCommandOneByOne(["0", "$", "0", "Enter"], accepterCreator)
       });
 
-    var word_under_cursor = createSection("Find word under cursor, * and #",
+    var word_under_cursor = createSection(I18n.getValue("Find word under cursor, * and #"),
       defaultPre,
-        [
-         "Find the next occurrence of the word under cursor with |*|, and the previous with |#|."
-        ],
+        new Array(
+			I18n.getValue("Find the next occurrence of the word under cursor with |*|, and the previous with |#|."),
+			"Find the next occurrence of the word under cursor with |*|, and the previous with |#|."
+        ),
         function() {
           interpreter.environment.setCommandMode();
           interpreter.interpretSequence(["0", "w"]);
           showCommandOneByOne(["*", "*", "#",
               cmd("#", function() {
-                insertText("Nothing new under the cursor.")
+                insertText(I18n.getValue("Nothing new under the cursor."))
               }), "Enter"], accepterCreator)
         });
 
-    var goto_line = createSection("Goto line, g and G",
+    var goto_line = createSection(I18n.getValue("Goto line, g and G"),
         defaultPre,
-        [
-         "|gg| takes you to the beginning of the file; |G| to the end.",
-         "To jump directly to a specific line, give its |line number| along with |G|.",
-         "Now go to the beginning of this screen with |gg| and then back to end with |G|."
-        ],
+        new Array(
+		 I18n.getValue("|gg| takes you to the beginning of the file; |G| to the end."),
+         I18n.getValue("To jump directly to a specific line, give its |line number| along with |G|."),
+         I18n.getValue("Now go to the beginning of this screen with |gg| and then back to end with |G|.")
+        ),
         function() {
           interpreter.environment.setCommandMode();
           showCommandOneByOne(["g", "g", "G",
              cmd("Enter", function() {
-                 insertText("Go to line 2 with 2G.");
+                 insertText(I18n.getValue("Go to line 2 with 2G."));
              }),
              "2", "G",
              cmd("Enter", function() {
-                insertText("gg! G majorly rocks.")
+                insertText(I18n.getValue("gg! G majorly rocks."))
              }), "Enter"
           ], accepterCreator)
         });
 
-    var search_match = createSection("Search, /text with n and N",
+    var search_match = createSection(I18n.getValue("Search, /text with n and N"),
       defaultPre,
-      [
-        "Searching text is a vital part of any text editor. In Vim, you press |/|, and give the text you are looking for.",
-        "You can repeat the search for next and previous occurrences with |n| and |N|, respectively.",
-        "For advanced use cases, it's possible to use regexps that help to find text of particular form (In real Vim).",
-        "Let's try a simple text search.",
-        "Search for |text| and find the subsequent matches with |n|."
-      ],
+      new Array(
+        I18n.getValue("Searching text is a vital part of any text editor. In Vim, you press |/|, and give the text you are looking for."),
+        I18n.getValue("You can repeat the search for next and previous occurrences with |n| and |N|, respectively."),
+        I18n.getValue("For advanced use cases, it's possible to use regexps that help to find text of particular form (In real Vim)."),
+        I18n.getValue("Let's try a simple text search."),
+        I18n.getValue("Search for |text| and find the subsequent matches with |n|."),
+        "Searching text is a vital part of any text editor. In Vim, you press |/|, and give the text you are looking for."
+      ),
       function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretSequence("1G");
@@ -270,23 +272,24 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
           cmd("Enter",
             function() {
               interpreter.interpretSequence(["/", "Esc"]);
-              insertText("Slash through the needless with /n/e/e/d/l/e/s");
+              insertText(I18n.getValue("Slash through the needless with /n/e/e/d/l/e/s"));
             }),
           "Enter"], accepterCreator
         )
       });
 
-    var removing = createSection("Removing a character, x and X",
+    var removing = createSection(I18n.getValue("Removing a character, x and X"),
         defaultPre,
-      [
-      "|x| and |X| delete the character under the cursor and to the left of the cursor, respectively",
-      "Try pressing |x| to remove the last word."
-      ], function() {
+      new Array(
+		  I18n.getValue("|x| and |X| delete the character under the cursor and to the left of the cursor, respectively"),
+		  I18n.getValue("Try pressing |x| to remove the last word."),
+		  "Try pressing |x| to remove the last word."
+      ), function() {
         interpreter.environment.setCommandMode();
         showCommandOneByOne([
           "x", "x", "x", "x", "x",
           cmd("x", function() {
-             insertText("Sometimes the treasure is the indicator (x).");
+             insertText(I18n.getValue("Sometimes the treasure is the indicator (x)."));
           }),
             /*
           "X", "X", "X", "X", "X",
@@ -298,12 +301,12 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
           accepterCreator);
     });
 
-    var replacing = createSection("Replacing letter under cursor, r",
+    var replacing = createSection(I18n.getValue("Replacing letter under cursor, r"),
         defaultPre,
-      [
-      "When you need to replace only one character under your cursor, without changing to insert mode, use |r|.",
-      "Replace my"
-      ], function() {
+      new Array(
+		  I18n.getValue("When you need to replace only one character under your cursor, without changing to insert mode, use |r|."),
+		  I18n.getValue("Replace my")
+      ), function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretSequence("Fy");
         showCommandOneByOne([
@@ -320,13 +323,13 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
     function setActiveContext() { $('.screen_view').addClass('active_context'); }
     function unsetActiveContext() { $('.screen_view').removeClass('active_context'); }
 
-    var adding_line = createSection("Insert new line, o and O",
+    var adding_line = createSection(I18n.getValue("Insert new line, o and O"),
       defaultPre,
-        [
-            "To insert text into a new line, press |o| or |O|",
-            "After new line is created, the editor is set to |insert| mode.",
-            "Write a bit and get back to |normal| mode."
-        ], function() {
+      new Array(
+            I18n.getValue("To insert text into a new line, press |o| or |O|"),
+            I18n.getValue("After new line is created, the editor is set to |insert| mode."),
+            I18n.getValue("Write a bit and get back to |normal| mode.")
+        ), function() {
             interpreter.environment.setCommandMode();
             interpreter.interpretSequence(["2", "G"]);
             showCommandOneByOne([
@@ -335,36 +338,38 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
                 }),
                 cmd("Esc", function() {
                     unsetActiveContext();
-                    insertText("Yep! Now big O to insert new line above the current line.");
+                    insertText(I18n.getValue("Yep! Now big O to insert new line above the current line."));
                     interpreter.environment.setCommandMode();
                 }),
                 cmd("O", setActiveContext),
                 cmd("Esc",
                     function() {
-                        insertText("I bet you feel like O___o");
+                        insertText(I18n.getValue("I bet you feel like O___o"));
                         unsetActiveContext();
                     }), "Enter"
             ], accepterCreator)
         });
 
-    var deleting = createSection("Deleting, d",
+    var deleting = createSection(I18n.getValue("Deleting, d"),
         defaultPre,
-      [
-      "|d| is the delete command",
-      "You can combine it with movement, e.g. |dw| deletes the first word on the right side of the cursor",
-      "It also copies the content, so that you can paste it with |p| to another location (on real Vim)."
-      ], function() {
+      new Array(
+		  I18n.getValue("|d| is the delete command"),
+		  I18n.getValue("You can combine it with movement, e.g. |dw| deletes the first word on the right side of the cursor"),
+		  I18n.getValue("It also copies the content, so that you can paste it with |p| to another location (on real Vim)."),
+		  "You can combine it with movement, e.g. |dw| deletes the first word on the right side of the cursor"
+      ), function() {
         interpreter.environment.setCommandMode();
         interpreter.environment.interpretOneCommand("0");
         showCommandOneByOne([
           "d", "w",
           cmd("Enter", function() {
+            insertText(I18n.getValue("The word is gone. Now let's remove two words with d2e."));
             insertText("The word is gone. Now let's remove two words with d2e.");
             interpreter.environment.interpretSequence(["0"]);
           }),
           "d", "2", "e",
           cmd("Enter", function() {
-            insertText("To 'de' or not to 'de', is not the question, anymore.");
+            insertText(I18n.getValue("To 'de' or not to 'de', is not the question, anymore."));
           }), "Enter"],
           accepterCreator);
     });

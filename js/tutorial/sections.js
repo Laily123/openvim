@@ -149,7 +149,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       defaultPre,
 	  new Array(    
 		I18n.getValue("Moving within the text is not limited to individual keys; you can combine movement keys with a |number|. For example, |3w| is the same as pressing w three times."),
-		"Moving within the text is not limited to individual keys; you can combine movement keys with a |number|. For example, |3w| is the same as pressing w three times."
+		"Moving within the text is not limited to individual keys; you can combine movement keys with a |number|."
       ),function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretSequence("0");
@@ -183,7 +183,6 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
         new Array(
 			I18n.getValue("To find and move to the next (or previous) occurrence of a character, use |f| and |F|, e.g. |fo| finds next o."),
             I18n.getValue("You can combine f with a number. For example, you can find 3rd occurrence of 'q' with |3fq|, que?"),
-            "To find and move to the next (or previous) occurrence of a character, use |f| and |F|, e.g. |fo| finds next o.",
             "You can combine f with a number. For example, you can find 3rd occurrence of 'q' with |3fq|, que?"
         ),
         function() {
@@ -222,7 +221,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       defaultPre,
         new Array(
 			I18n.getValue("Find the next occurrence of the word under cursor with |*|, and the previous with |#|."),
-			"Find the next occurrence of the word under cursor with |*|, and the previous with |#|."
+			"Find the next occurrence of the word under cursor with |*|, and the previous"
         ),
         function() {
           interpreter.environment.setCommandMode();

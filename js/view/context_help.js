@@ -19,13 +19,13 @@ function create_VIM_CONTEXT_HELP(context) {
 
   function commandHelp(keys, description, contexthelp_key) {
     var commandMode = $('.command-mode', context);
-    addCommandHelp(commandMode, keys, description, contexthelp_key); 
+    addCommandHelp(commandMode, keys, I18n.getValue(description), contexthelp_key); 
 	}
 
   function addCommandHelps() {
     var insertMode = $('.insert-mode', context);
     
-    addCommandHelp(insertMode, "Esc", "change to normal mode");
+    addCommandHelp(insertMode, "Esc", I18n.getValue("change to normal mode"));
     commandHelp("i, I", "change to insert mode");
     commandHelp("h, j, k, l", "move left, down, up, right");
     commandHelp("w, b, e, ge", "move word at a time");

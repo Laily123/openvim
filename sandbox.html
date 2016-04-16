@@ -4,7 +4,7 @@
 <head>
   <meta charset='utf-8' />
   <link rel="stylesheet" type="text/css" href="css.css?version={VERSION}" />
-  <title>Interactive Vim tutorial - sandbox</title>
+  <title data-lang="en">Interactive Vim tutorial - sandbox</title>
 
   <!-- GENERAL (mostly) -->
   <!--
@@ -53,9 +53,9 @@
 
 <body>
   <div class="navigation">
-    <a href="tutorial.html">Tutorial</a>
-    <a href="sandbox.html" class="selected">Practice</a>
-    <a href="development.html">Development</a>
+    <a href="tutorial.html" data-lang="en">Tutorial</a>
+    <a href="sandbox.html" class="selected" data-lang="en">Practice</a>
+    <a href="development.html" data-lang="en">Development</a>
     <!--
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.openvim.com/sandbox.html" data-text="OpenVim - Interactive Vim sandbox" data-count="horizontal" data-via="egaga">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     -->
@@ -63,7 +63,8 @@
   </div>
 
   <div style="margin-left: 15px">
-      <p>Here you can practice Vim with context-aware help menu. <br>e.g. if you press 'd', you see that the list on the right changes: it will show (some of the) Vim command combinations that start with 'd'.</p>
+      <p data-lang="en">sandbox_intro1</p>
+      <p data-lang="en">sandbox_intro2</p>
   </div>
 
   <div class="screen_view active_context">
@@ -86,7 +87,7 @@
     </div>
 
     <div class="sidebar">
-        <h4>Context-Aware Actions</h4>
+        <h4 data-lang="en">Context-Aware Actions</h4>
         <h4 class="context_pressed"></h4>
         <p class="command-mode"></p>
         <p class="insert-mode"></p>
@@ -94,5 +95,7 @@
 
     <div style="clear: both;"></div>
   </div>
+   <script type="text/Javascript" src="js/jquery.i18n.properties.min.js"></script>
+  <script type="text/Javascript" src="js/i18n.js"></script>
 </body>
 </html>

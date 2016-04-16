@@ -374,13 +374,14 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
           accepterCreator);
     });
 
-  var repetition = createSection("Repetition with .",
+  var repetition = createSection(I18n.getValue("Repetition with ."),
     defaultPre,
-    [
-        "To repeat the previous command, just press |.|",
-        "First, remove two words with |d2w|.",
-        "After that, remove the rest of the words in this line with |.|"
-    ],
+    new Array(
+        I18n.getValue("To repeat the previous command, just press |.|"),
+        I18n.getValue("First, remove two words with |d2w|."),
+        I18n.getValue("After that, remove the rest of the words in this line with |.|"),
+		"After that, remove the rest of the words in this line with |.|"
+    ),
       function() {
         interpreter.environment.setCommandMode();
         interpreter.interpretOneCommand("0");
@@ -388,26 +389,26 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
             "d", "2",
             "w", ".", ".", ".", ".", ".",
           cmd("Enter", function() {
-            insertText("Repetition is the root of all periods.")
+            insertText(I18n.getValue("Repetition is the root of all periods."))
           }),
             "Enter"
         ], accepterCreator)
       });
 
-  var visual_mode = createSection("Visual mode, v",
+  var visual_mode = createSection(I18n.getValue("Visual mode, v"),
     defaultPre,
-    [
-      "Besides insert and normal mode, Vim has also |visual| mode.",
-      "In visual mode, you select text using movement keys before you decide what to do with it.",
-      "Let's see how. Goto visual mode with |v|. Then select a word with |e|. After you've selected the text, you can delete it with |d|.",
-      "This sentence has not seen the light."
-    ],
+    new Array(
+      I18n.getValue("Besides insert and normal mode, Vim has also |visual| mode."),
+      I18n.getValue("In visual mode, you select text using movement keys before you decide what to do with it."),
+      I18n.getValue("Let's see how. Goto visual mode with |v|. Then select a word with |e|. After you've selected the text, you can delete it with |d|."),
+      I18n.getValue("This sentence has not seen the light.")
+    ),
     function() {
       interpreter.environment.setCommandMode();
       interpreter.interpretSequence("4b");
       showCommandOneByOne(
         ["v", "e", "l", "d",
-          cmdWithText("Enter", "(Visually gifted, I lost my words.)"), "Enter"
+          cmdWithText("Enter", I18n.getValue("(Visually gifted, I lost my words.)")), "Enter"
         ], accepterCreator)
     });
 
@@ -428,23 +429,23 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
         accepterCreator);
     });
 
-  var last_commands = createSection("Real Vim awaits",
+  var last_commands = createSection(I18n.getValue("Real Vim awaits"),
         defaultPre,
-    [
-        "Now you should be quite confident to enter the real Vim.",
-        "Most important commands to remember are |:w| (save), |:q| (quit), and |:q!| (quit without saving).",
-        "Also don't |PANIC!| If you make a mistake, press |u| for undo and |ctrl+R| for redo",
-        "If you have a problem, or want to learn more about what Vim offers, type |:help|"
-    ],
+		new Array(
+			I18n.getValue("Now you should be quite confident to enter the real Vim."),
+			I18n.getValue("Most important commands to remember are |:w| (save), |:q| (quit), and |:q!| (quit without saving)."),
+			I18n.getValue("Also don't |PANIC!| If you make a mistake, press |u| for undo and |ctrl+R| for redo"),
+			I18n.getValue("If you have a problem, or want to learn more about what Vim offers, type |:help|")
+		),	  
         defaultPost
     );
 
-  var the_end = createSection("The end", defaultPre,
-      [
-        "Thank you for your time.",
-        "This tutorial is still in progress; minor changes might occur daily. I am also developing other features/concepts.",
-        "Feel encouraged to send greetings or feedback to: henrik|.|huttunen|@|gmail|.|com"
-      ], wait_for_abort);
+  var the_end = createSection(I18n.getValue("The end"), defaultPre,
+      new Array(
+        I18n.getValue("Thank you for your time."),
+        I18n.getValue("This tutorial is still in progress; minor changes might occur daily. I am also developing other features/concepts."),
+        I18n.getValue("Feel encouraged to send greetings or feedback to: henrik|.|huttunen|@|gmail|.|com")
+      ), wait_for_abort);
 
   // append a and A
   // J join lines

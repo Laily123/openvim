@@ -11,7 +11,7 @@ var　I18n = {
 	init :function(){
 		jQuery.i18n.properties({ 
 		    name: 'lang',// 资源文件名称
-		    path: '/openvim/i18n/',// 资源文件所在目录路径
+		    path: '/i18n/',// 资源文件所在目录路径
 		    mode: 'map',// 模式：变量或 Map 
 		    language: 'zh-CN',// 对应的语言
 		    cache: false, 

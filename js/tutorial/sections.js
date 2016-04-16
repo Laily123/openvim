@@ -134,7 +134,6 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       new Array(
         I18n.getValue("To navigate the text in terms of words, you can use keys |w|, |b|, and |e| (also W, B, E in real Vim)."),
         I18n.getValue("|w| moves to the start of next word; |e| moves to the end of the word; and |b| moves to beginning of the word."),
-		"To navigate the text in terms of words, you can use keys |w|, |b|, and |e| (also W, B, E in real Vim).",
 		"|w| moves to the start of next word; |e| moves to the end of the word; and |b| moves to beginning of the word."
 	  ),function() {
         interpreter.environment.setCommandMode();

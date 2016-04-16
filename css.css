@@ -78,12 +78,12 @@ h1 {
 }
 
 .char {
-  width: 10px;
+  width: 15px;
   padding: 2px 1px !important;
   letter-spacing: 1px;
   display: inline-block;
   height: 15px;
-  margin: 2px 0;
+  /*margin: 2px 0;*/
 }
 
 .char.cursor {
@@ -97,8 +97,8 @@ h1 {
 
 .char.emphasized {
   background-color: #9400d3;
-  padding: 2px 3px !important;
-  border-radius: 0.3em;
+  padding: 1px 1px 3px 1px !important;
+  /*border-radius: 0.3em;*/
 }
 
 .cursor.blinking_off {
@@ -151,7 +151,7 @@ h1 {
   color: gray !important;
   position: absolute;
   left: -4px;
-  top: 9px;
+  top: 7px;
   display: inline-block;
   content: counter(linenumbers);
   counter-increment: linenumbers;

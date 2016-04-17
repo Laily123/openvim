@@ -260,7 +260,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
         I18n.getValue("For advanced use cases, it's possible to use regexps that help to find text of particular form (In real Vim)."),
         I18n.getValue("Let's try a simple text search."),
         I18n.getValue("Search for |text| and find the subsequent matches with |n|."),
-        "Searching text is a vital part of any text editor. In Vim, you press |/|, and give the text you are looking for."
+        "Searching text is a vital part of any text editor. In Vim, you press |/|."
       ),
       function() {
         interpreter.environment.setCommandMode();
@@ -354,7 +354,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
 		  I18n.getValue("|d| is the delete command"),
 		  I18n.getValue("You can combine it with movement, e.g. |dw| deletes the first word on the right side of the cursor"),
 		  I18n.getValue("It also copies the content, so that you can paste it with |p| to another location (on real Vim)."),
-		  "You can combine it with movement, e.g. |dw| deletes the first word on the right side of the cursor"
+		  "You can combine it with movement"
       ), function() {
         interpreter.environment.setCommandMode();
         interpreter.environment.interpretOneCommand("0");
@@ -362,7 +362,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
           "d", "w",
           cmd("Enter", function() {
             insertText(I18n.getValue("The word is gone. Now let's remove two words with d2e."));
-            insertText("The word is gone. Now let's remove two words with d2e.");
+            insertText("The word is gone.");
             interpreter.environment.interpretSequence(["0"]);
           }),
           "d", "2", "e",
@@ -399,7 +399,7 @@ function register_VIM_TUTORIAL_SECTIONS(interpreter, messager, createSection, re
       I18n.getValue("Besides insert and normal mode, Vim has also |visual| mode."),
       I18n.getValue("In visual mode, you select text using movement keys before you decide what to do with it."),
       I18n.getValue("Let's see how. Goto visual mode with |v|. Then select a word with |e|. After you've selected the text, you can delete it with |d|."),
-      I18n.getValue("This sentence has not seen the light.")
+      "This sentence has not seen the light."
     ),
     function() {
       interpreter.environment.setCommandMode();

@@ -25,6 +25,6 @@ henrik.huttunen@gmail.com or [egaga@twitter](http://twitter.com/egaga)
 
 ## 译者注
 
-上面的都是原作者的话我翻译过来的😂，这个项目原本是英文的，我加入了国际化模板并翻译了一份在 [https://vim.laily.net]( https://vim.laily.net)，对于翻译有意见或者建议也希望大家提 issue，对于原项目的开发我暂时没有太多的时间参与，原作者好像也很久没有更新了。
+上面的都是原作者的话我翻译过来的😂，这个项目原本是英文的，我加入了国际化模板并翻译了一份在 [https://vim.laily.net]( http://vim.laily.net)，对于翻译有意见或者建议也希望大家提 issue，对于原项目的开发我暂时没有太多的时间参与，原作者好像也很久没有更新了。
 
 PS：最近在做另一个关于 Vim 的项目 [Hi-Vim](https://github.com/hi-vim/hi-vim)，欢迎大家参与～
